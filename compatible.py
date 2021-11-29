@@ -37,6 +37,18 @@ def constructMatrix(coordinates):
 
 # Where to write initial algorithm code as brute force to better understand the problem
 def bruteForceAttempt(matrix, width, length):
+    """
+    First lets assume that the matrix being input in already a submatrix
+    of the original matrix such that it contains all of the 1s and some 0s
+    to fill the boundary where it would not be 1 due to being not a square
+    or retangal and rather a rectangular polygon
+    
+    Start with the first row in the matrix find the first 1
+    count the number of consequetive 1s horizontally then vertically
+    check if rectangle will fit given consequetive 1s
+    if not then continue horizontally starting from the next 0
+    for simplicity sake    
+    """
     return True
 
 
