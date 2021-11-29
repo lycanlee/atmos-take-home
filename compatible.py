@@ -49,7 +49,46 @@ def bruteForceAttempt(matrix, width, length):
     if not then continue horizontally starting from the next 0
     for simplicity sake    
     """
-    return True
+    rows = len(matrix)
+    columns = len(matrix[0])
+    i = 0
+    while i < rows:
+        j = 0
+        while j < columns:
+            print(matrix[i][j])
+            countHorizontal = 0
+            countVertical = 0
+            if matrix[i][j] == 1:
+                x = i
+                y = j
+                while y < columns:
+                    if matrix[i][y] == 1:
+                        countHorizontal += 1
+                    else:
+                        break
+                    y += 1
+                while x < rows:
+                    if matrix[x][j] == 1:
+                        countVertical += 1
+                    else:
+                        break
+                    x += 1
+
+            # Check if criteria met
+            if (countHorizontal >= width and countVertical >= length) or (
+                countHorizontal >= length & countVertical >= width
+            ):
+                return True
+
+            # determine horizontal move
+            if countHorizontal == 0:
+                j += 1
+            elif countHorizontal - 1 >= min(width, length):
+                j += 1
+            else:
+                j += countHorizontal
+        i += 1
+    return False 
 
 
 if __name__ == "__main__":
