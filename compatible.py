@@ -11,3 +11,19 @@ Things to think about and assumptions:
 - Assuming coordinates will fit into the 2D grid provided and I do not need to scale the grid
 
 """
+
+def isCompatible(homeFootprint, lotBoundaries):
+    matrix = constructMatrix(lotBoundaries)
+    result = bruteForceAttempt(matrix, homeFootprint[0], homeFootprint[1])
+    return result
+
+def constructMatrix(coordinates):
+    return [[0,1]]
+
+# Where to write initial algorithm code as brute force to better understand the problem
+def bruteForceAttempt(matrix, width, length):
+    return True
+
+if __name__ == '__main__':
+    result = isCompatible([5,2], [(1, 1), (5, 1), (5, 9), (3, 2), (1, 1)])
+    print("Your house is compatible with this lot: ", result)
