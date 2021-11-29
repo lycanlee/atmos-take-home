@@ -12,5 +12,14 @@ Things to think about and assumptions:
 
 """
 def isCompatible(homeFootprint, lotBoundaries):
-    
+    matrix = constructMatrix(lotBoundaries)
+    result = bruteForceAttempt(matrix, homeFootprint[0], homeFootprint[1])
+    return result
+
+def constructMatrix(coordinates):
+    return [[0,1]]
+
+# Where to write initial algorithm code as brute force to better understand the problem
+def bruteForceAttempt(matrix, width, length):
     return True
+
