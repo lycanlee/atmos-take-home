@@ -11,3 +11,6 @@ Things to think about and assumptions:
 - Assuming coordinates will fit into the 2D grid provided and I do not need to scale the grid
 
 """
+def isCompatible(homeFootprint, lotBoundaries):
+    
+    return True
