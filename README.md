@@ -1,6 +1,6 @@
 # Atmos Take Home Test
 
-This is my submission for Atmos Take home test. Thank you Matt and Atmos team for your consideration. It's been fun thinking about the challenge. The original problem statemnt can be found below. I answered the questions at the top of the compatible.py file in a string literal. Hopefully you enjoy reading through my thoughts and they are coherent enough to understand without a whiteboard.
+This is my submission for Atmos Take home test. Thank you Matt and Atmos team for your consideration. It's been fun thinking about the challenge. The original problem statemnt can be found below. I answered the questions at the top of the compatible.py file in a string literal. Hopefully you enjoy reading through my thoughts and they are coherent enough to understand without a whiteboard. It is an incomplete solution in terms of edge cases and being optimal but I wanted to adhere to the rough timeline guide.
 
 Finger Crossed!
 
