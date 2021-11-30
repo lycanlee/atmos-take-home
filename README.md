@@ -1,4 +1,10 @@
-# Project Instructions
+# Atmos Take Home Test
+
+This is my submission for Atmos Take home test. Thank you Matt and Atmos team for your consideration. It's been fun thinking about the challenge. The original problem statemnt can be found below. I answered the questions at the top of the compatible.py file in a string literal. Hopefully you enjoy reading through my thoughts and they are coherent enough to understand without a whiteboard.
+
+Finger Crossed!
+
+## Project Instructions
 
 Atmos has to find out where we will place a home on a lot in our 3D models. The first part of this process is checking whether the home fits on the lot at all. In this challenge, we want to know whether a given home and a given lot are "compatible", ie. whether the home can fit within the lot.
  
@@ -10,18 +16,18 @@ Create a function `isCompatible()` that receives a home's footprint and a lot's 
  
 The prompt may be ambiguous on some parts - that's intentional! We want you to make reasonable assumptions when faced with ambiguity. We won't judge you on the details; we're more interested in seeing your general approach. Also, feel free to search up anything you'd like; as a hint, there are general mathematical solutions to this problem and its variants.
  
-## Bonus
+### Bonus
 
 In real life, lots have "setbacks", which are buffer zones within a lot's boundaries that determine how much space must exist between the lot boundaries and the home. Think of them as "padding" in CSS.
  
 Assuming setbacks are the same for every side of a lot, specified as an integer in units, incorporate setbacks into the `isCompatible()` function.
  
-# How to Submit
+## How to Submit
 
 Upload your code
 Upload your completed project (feel free to make a Gist) to your GitHub, and then paste a link to the repository or Gist below in the form along with any comments you have about your solution.
  
-## Questions
+### Questions
 
 Please answer the following questions in your submission:
 What improvements would you make if you were to start over again?
