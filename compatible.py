@@ -6,6 +6,7 @@ When I have matrix I can then build an algorithm to determine if the house fits.
 
 ## Things to think about and assumptions:
 - Are length and width integers? (will start with assuming so for simplicity, can easy scale everything later)
+- Assuming rectangular verticies provided are integers
 - Going to start by assuming that boundaries and rectangular polygon will be parallel (no rotation required)
 - Assuming length and width are supplied in the same unit of measurement
 - Assuming coordinates will fit into the 2D grid provided and I do not need to scale the grid
@@ -34,10 +35,37 @@ We can create a second matrix where each index we store a tuple (or make it a 3d
 left by iterating through in a similar fashion and adding 1 to the cooresponding value in the touple. Then checking if any of the touples have values greater
 or equal to width/length like in the solution I have created.
 
+----------------------------------
+
+## In real life, lots are unfortunately not rectilinear - they can be of any general shape. With this in mind, how would you change your approach 
+# to determine where a home could fit on a lot?
+
+Some of the assumptions I ended up making was that length/width as well as the verticies provided where provided in integers. One way to handle this is
+to create a constant(k) such that when multipled by length/width and the verticies would become integers. You would then scale everything else by constant(k) including the
+steps you take when iterating through the matrix. Why does this matter or how does it apply to this question? Ever played with Photoshop and zoomed deep into an image?
+In a rastor file you can think of different polygons as actually being rectangular polygons if you zoom in enough. This would also need to be handled for the case in which a setback
+is given in a different unit than the lot boundaries or house footprint. This not be the optimal solution however it would work in theory with a few modifications to ensure that you are
+ensuring space is a bit greater than your width to just acount for weird edges.
+
+Thinking through a different alogorithm I would take inspiration from (https://web.archive.org/web/20150221185554/https://d3plus.org/blog/behind-the-scenes/2014/07/08/largest-rect/)
+where you first smooth the edges of the polygon. From there you can implement almost the same algorithm except your aspect ratio would be fixed as you have the length and width of the house.
+In a convex shape, one alternative you can do is draw lines (vector) between each vertex then take the longest line check if the line length is greater than the max(length,width) if it is
+then you can iterate over that line as a vector checking in orthoginal(perpendicular) direction to determine if the width will fit. This doesn't work as well in a non-convex shape as not all verticies
+can touch via a straight line by definition, I figure in this case you can likely draw you lines between verticies and in the case that is crosses a boundary move it so the line only touches one vertex and 
+touches the outer boundary of the shape and ends at the furthest boundry it can.
+
+As a last next step following the above I would read through: https://www.cs.princeton.edu/~chazelle/pubs/PolygContainmentProb.pdf to get a better understanding of that was done here and see if implementing
+this would be a better solution when only having to account for a rectangle (which is an easier problem)
 
 
- 
+--------------------------------
+# Thank you!
 
+Thank you Matt and the Atmos team! This is far from my best work and definitely doesn't represent me ability well. However it is a reflection of how long it's been since I have had to 
+code my own solution to something from scratch. I had plenty of fun thinking about the problem and it reminded me again why I not only miss being
+more of an individual contributor but also why I NEED to go back and code more to keep my skills sharp. I hope my explanations and understanding of
+the problem make up for my poor code and it can be considered along with the rest of the strengths I may bring to the team with my lessons learned scaling a business and team.
+Regardless I thank you for the opportunity and the problem, it's been a blast to think about and solve.
 
 """
 import numpy as np
@@ -120,6 +148,7 @@ def getConsecutiveOnesHorizontal(x, y, columns, countHorizontal, matrix):
             break
         y += 1
     return countHorizontal
+
 
 # CountVertical likely doesn't need to be passed in because it will always be 0.
 # Same comment applies to getConsecutiveOnesHorizontal function
