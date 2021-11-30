@@ -1,14 +1,43 @@
 """
-First Thoughts:
+# First Thoughts:
 Being a rectangular polygon I can respresent that as a matrix of 0s and 1s where 0s is it being outside of the boundary and 1 being within the boundary
 Need to create matrix from coordinates
 When I have matrix I can then build an algorithm to determine if the house fits.
 
-Things to think about and assumptions:
+## Things to think about and assumptions:
 - Are length and width integers? (will start with assuming so for simplicity, can easy scale everything later)
 - Going to start by assuming that boundaries and rectangular polygon will be parallel (no rotation required)
 - Assuming length and width are supplied in the same unit of measurement
 - Assuming coordinates will fit into the 2D grid provided and I do not need to scale the grid
+
+# Questions:
+
+## What improvements would you make if you were to start over again?
+
+Well first off my solution is not that well coded (or documented) and makes a ton of assumptions ignoring edgecases above.
+So I would start there. If I am to put that to the side for a moment, largely my solution is solving the problem
+through bruteforce which was largely done just as my first implementation through so I could better understand the problem
+before jumping into how others have already solved this mathematically as I beleive trying to solve the problem first can provide
+a deeper understanding to solutions later. Let's talk about how I would handle iterating my code in an agile fashion.
+First let's start by simply pruning my bruteforce method a bit and then discuss an alternative algorithm for solving this (Which really
+should have been my first solution). So first one of the problems with my bruteforce method for searching is that if I do not
+find a fitting rectangle in my first pass through the X-axis (fist vector) then I end up iterating over the same space multiple times
+as I am only ever incrementing the Y axis by one. There are a few ways that can be solved, one is to store the indexs where I read 0
+last row and only check those index's in the next row since I would have already checked for consequetive 1s upwards and stopped at a 0.
+Another obvious thing to check which I forgot to do where was right away looking at width and height of the rectangle and determining if it
+will even fit in the square matrix once reduced to smallest sub matrix that would contain all the 1s. Ontop of checking that right away I
+can also as I am iterating through the rows and columns to stop iterating if the min(length,width) is greater than the number of indexs I
+have left in that vector. 
+
+Implementing a different algorithm: Taking inspiration from (https://www.geeksforgeeks.org/maximum-size-sub-matrix-with-all-1s-in-a-binary-matrix/)
+We can create a second matrix where each index we store a tuple (or make it a 3d matrix) and in each index we can store consequetive 1s below and to the 
+left by iterating through in a similar fashion and adding 1 to the cooresponding value in the touple. Then checking if any of the touples have values greater
+or equal to width/length like in the solution I have created.
+
+
+
+ 
+
 
 """
 import numpy as np
